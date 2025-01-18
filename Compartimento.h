@@ -22,4 +22,5 @@ void LImprime(RCompartimento *rLista);
 void LTrocaR(RCompartimento *rLista);
 int LInsere(RCompartimento *rLista, RochaMineral *pRocha);
 int LRetira(RCompartimento *rLista, RochaMineral *pRocha);
+void Selectionsort(RCompartimento *rLista);
 #endif

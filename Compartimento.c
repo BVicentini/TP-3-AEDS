@@ -39,7 +39,7 @@ int LInsere(RCompartimento *rLista, RochaMineral *pRocha)
 void LImprime(RCompartimento *rLista)
 {
     int cont = 1;
-    ApontadorRocha pAux= NULL;
+    ApontadorRocha pAux = NULL;
     pAux = rLista->pPrimeiro->pProx;
     while (pAux != NULL)
     {
@@ -168,5 +168,25 @@ void LTrocaR(RCompartimento *rLista)
             rLista->pUltimo = anteriorMaisLeve;
         }
         free(maisLeve);
+    }
+}
+void Selectionsort(RCompartimento *rLista)
+{
+    int tamanho;
+    tamanho = LTamanho(rLista);
+    ApontadorRocha i, j, min;
+    RCompartimento aux;
+    for(i=rLista->pPrimeiro->pProx; i!=NULL;i=i->pProx){
+        min = i;
+        for(j=i->pProx; j!=NULL; j=j->pProx){
+            if(j->rocha.peso<min->rocha.peso){
+                    min = j;
+            }
+        }
+        if(min!=i){
+            RochaMineral temp = i->rocha;
+            i->rocha= min->rocha;
+            min->rocha = temp;
+        }
     }
 }
